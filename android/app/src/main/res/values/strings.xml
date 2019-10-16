@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">platzi.music.com</string>
+    <string name="title_activity_main">platzi.music.com</string>
+    <string name="package_name">com.platzi.music</string>
+    <string name="fileprovider_authority">com.platzi.music.fileprovider</string>
+    <string name="custom_url_scheme">com.platzi.music</string>
+</resources>

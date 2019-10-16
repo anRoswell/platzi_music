@@ -7,8 +7,20 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-slides pager="true" [options]="slideOps">
+    <ion-slide>
+      <img src="" alt="Platzi music logo">
+      <h1>Escucha tu musica</h1>
+      <h3>La mejor musica clasica para tu alma</h3>
+      <p>Lorem ipsum</p>
+      <ion-icon slot="start" name="play"></ion-icon>
+    </ion-slide>
+    <ion-slide> Slide2	</ion-slide>
+    <ion-slide> Slide3	</ion-slide>
+    <ion-slide> 
+      <h4>Cuarto Slide</h4>  
+      <p>Texto de prueba para el cuarto slide</p>
+      <ion-icon slot="start" name="stop"></ion-icon>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
