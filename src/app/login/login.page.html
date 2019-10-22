@@ -6,7 +6,7 @@
 
 <ion-content>
 	<figure></figure>
-	<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+	<form [formGroup]="loginForm" (ngSubmit)="LoginUser(loginForm.value)">
 		<ion-item>
 			<ion-label>Usuario</ion-label>
 			<ion-input type="text" formControlName="email"></ion-input>
@@ -38,12 +38,16 @@
 				>
 					{{ validation.message }}
 				</div>
+				{{ errorMessage }}
 			</ng-container>
 		</div>
-		<!--	<ion-item>
-				<ion-button (click)="Login()">
-					Login
-				</ion-button>
-			</ion-item> -->
+		<ion-button [disabled]="!loginForm.valid" type="submit">
+			Login
+		</ion-button>
 	</form>
 </ion-content>
+<ion-footer>
+	<ion-button (click)="goToRegister()">
+		Registro
+	</ion-button>
+</ion-footer>

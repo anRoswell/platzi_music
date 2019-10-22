@@ -9,13 +9,21 @@ import {
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'app-login',
-	templateUrl: './login.page.html',
-	styleUrls: ['./login.page.scss']
+	selector: 'app-register',
+	templateUrl: './register.page.html',
+	styleUrls: ['./register.page.scss']
 })
-export class LoginPage implements OnInit {
-	loginForm: FormGroup;
+export class RegisterPage implements OnInit {
+	registerForm: FormGroup;
 	validationMessage = {
+		name: [
+			{ type: 'required', message: 'Nombre es requerido' },
+			{ type: 'minlength', message: 'Minimo 5 letras para el nombre' }
+		],
+		apellido: [
+			{ type: 'required', message: 'Apellido es requerido' },
+			{ type: 'minlength', message: 'Minimo 5 letras para el apellido' }
+		],
 		email: [
 			{ type: 'required', message: 'El email es requerido' },
 			{ type: 'pattern', message: 'ojo, email no valido' }
@@ -32,7 +40,15 @@ export class LoginPage implements OnInit {
 		private authenticateService: AuthenticateService,
 		private route: Router
 	) {
-		this.loginForm = this.formBuilder.group({
+		this.registerForm = this.formBuilder.group({
+			name: new FormControl(
+				'',
+				Validators.compose([Validators.required, , Validators.minLength(5)])
+			),
+			apellido: new FormControl(
+				'',
+				Validators.compose([Validators.required, Validators.minLength(5)])
+			),
 			email: new FormControl(
 				'',
 				Validators.compose([
@@ -49,21 +65,11 @@ export class LoginPage implements OnInit {
 
 	ngOnInit() {}
 
-	LoginUser(credentials: { email: string; password: string }) {
-		this.authenticateService
-			.loginUser(credentials)
-			.then(res => {
-				console.log(res);
-				this.errorMessage = '';
-				localStorage.setItem('isUserLogguedIn', 'true');
-				this.route.navigateByUrl('/menu/home');
-			})
-			.catch(err => {
-				this.errorMessage = err;
-			});
+	register(userData) {
+		userData.password = btoa(userData.password);
+		this.authenticateService.registerUser(userData);
+		this.route.navigateByUrl('/login');
 	}
 
-	goToRegister() {
-		this.route.navigateByUrl('/register');
-	}
+	goToLoguin() {}
 }

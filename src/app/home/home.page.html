@@ -1,26 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="end">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title>
+			Ionic Blank
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-slides pager="true" [options]="slideOps">
-    <ion-slide>
-      <img src="" alt="Platzi music logo">
-      <h1>Escucha tu musica</h1>
-      <h3>La mejor musica clasica para tu alma</h3>
-      <p>Lorem ipsum</p>
-      <ion-icon slot="start" name="play"></ion-icon>
-    </ion-slide>
-    <ion-slide> Slide2	</ion-slide>
-    <ion-slide> Slide3	</ion-slide>
-    <ion-slide> 
-      <h4>Cuarto Slide</h4>  
-      <p>Texto de prueba para el cuarto slide</p>
-      <ion-icon slot="start" name="stop"></ion-icon>
-    </ion-slide>
-  </ion-slides>
+	<ion-slides pager="true" [options]="slideOps">
+		<ion-slide>
+			<img src="" alt="Platzi music logo" />
+			<h1>Escucha tu musica</h1>
+			<h3>La mejor musica clasica para tu alma</h3>
+			<p>Lorem ipsum</p>
+			<ion-icon slot="start" name="play"></ion-icon>
+		</ion-slide>
+		<ion-slide> Slide2 </ion-slide>
+		<ion-slide> Slide3 </ion-slide>
+		<ion-slide>
+			<h4>Cuarto Slide</h4>
+			<p>Texto de prueba para el cuarto slide</p>
+			<ion-icon slot="start" name="stop"></ion-icon>
+		</ion-slide>
+	</ion-slides>
 </ion-content>
